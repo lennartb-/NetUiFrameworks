@@ -2,17 +2,81 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:example="clr-namespace:Example"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="{Binding WindowWidth, Mode=TwoWay}">
     <Grid>
-        <ListBox ItemsSource="{Binding Items}">
-            <ListBox.ItemTemplate>
-                <DataTemplate DataType="{x:Type example:Model}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Height="64" Margin="5" Source="{Binding Image}" />
-                        <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <Button>Item 1</Button>
+                <Button>Item 2</Button>
+                <Button>Item 3</Button>
+                <Button>Item 4</Button>
+            </StackPanel>
+        </Border>
+        <RichTextBox Padding="5" Grid.Row="1" Grid.Column="0">
+            <FlowDocument>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <WrapPanel>
+                            <Label Width="150">Name:</Label>
+                            <TextBox>Mustermann</TextBox>
+                        </WrapPanel>
+                    </InlineUIContainer>
+                </Paragraph>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <WrapPanel>
+                            <Label Width="150">Vorname</Label>
+                            <TextBox>Max</TextBox>
+                        </WrapPanel>
+                    </InlineUIContainer>
+                </Paragraph>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <WrapPanel>
+                            <Label Width="150">Wohnort</Label>
+                            <TextBox>12345 Musterhausen</TextBox>
+                        </WrapPanel>
+                    </InlineUIContainer>
+                </Paragraph>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <WrapPanel>
+                            <Label Width="150">Adresse</Label>
+                            <TextBox>Musterstraße 10</TextBox>
+                        </WrapPanel>
+                    </InlineUIContainer>
+                </Paragraph>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <WrapPanel>
+                            <Label Width="150">Stammkunde</Label>
+                            <RadioButton GroupName="1">Ja</RadioButton>
+                            <RadioButton GroupName="1">Nein</RadioButton>
+                        </WrapPanel>
+                    </InlineUIContainer>
+                </Paragraph>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <WrapPanel>
+                            <Label Width="150">Geburtstag</Label>
+                            <Calendar></Calendar>
+                        </WrapPanel>
+                    </InlineUIContainer>
+                </Paragraph>
+
+
+            </FlowDocument>
+        </RichTextBox>
+        <DataGrid Margin="5" Name="DataGrid" Height="300" Grid.Row="1" Grid.Column="1"></DataGrid>
+
     </Grid>
 </Window>

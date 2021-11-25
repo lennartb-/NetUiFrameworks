@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Windows.Controls;
 
 namespace Example;
 
@@ -7,14 +7,29 @@ public partial class MainWindow
     public MainWindow()
     {
         InitializeComponent();
-        DataContext = this;
+        DataContextChanged += MainWindow_DataContextChanged;
     }
 
-    public IEnumerable<Model> Items { get; set; } = new List<Model>
+    private void MainWindow_DataContextChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
     {
-        new("Erdbeere", @"Resources\strawberry.jpg"),
-        new("Ananas", @"Resources\pineapple.jpg")
-    };
-}
+        if (e.NewValue is MainWindowViewModel vm)
+        {
+            vm.OnViewportChanged += Vm_OnViewportChanged;
+        }
+    }
 
-public record Model(string Name, string Image);
+    private void Vm_OnViewportChanged(object? sender, ViewportChangedEventArgs e)
+    {
+        switch (e.NewViewport)
+        {
+            case Viewport.Desktop:
+                Grid.SetRow(DataGrid, 1);
+                Grid.SetColumn(DataGrid, 1);
+                break;
+            case Viewport.Smartphone:
+                Grid.SetRow(DataGrid, 2);
+                Grid.SetColumn(DataGrid, 0);
+                break;
+        }
+    }
+}
