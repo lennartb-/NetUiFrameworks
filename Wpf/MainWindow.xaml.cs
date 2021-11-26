@@ -1,6 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 
-namespace Example;
+namespace Wpf;
 
 public partial class MainWindow
 {
@@ -14,11 +15,11 @@ public partial class MainWindow
     {
         if (e.NewValue is MainWindowViewModel vm)
         {
-            vm.OnViewportChanged += Vm_OnViewportChanged;
+            vm.OnViewportChanged += OnViewportChanged;
         }
     }
 
-    private void Vm_OnViewportChanged(object? sender, ViewportChangedEventArgs e)
+    private void OnViewportChanged(object? sender, ViewportChangedEventArgs e)
     {
         switch (e.NewViewport)
         {

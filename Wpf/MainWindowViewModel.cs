@@ -1,81 +1,68 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 
-namespace Example
+namespace Wpf;
+
+public class MainWindowViewModel : ObservableObject
 {
-    public enum Viewport
+    private readonly IViewportCalculator viewportCalculator;
+    private int windowWidth = 800;
+    private bool isFullMenuVisible;
+
+    public event EventHandler<ViewportChangedEventArgs> OnViewportChanged = (_, _) => { };
+
+    public MainWindowViewModel(IViewportCalculator viewportCalculator)
     {
-        Smartphone,
-        Desktop
+        this.viewportCalculator = viewportCalculator;
+        RecalculateViewport(WindowWidth);
+
     }
 
-    public class ViewportChangedEventArgs : EventArgs
-    {
-        public Viewport NewViewport { get; }
 
-        public ViewportChangedEventArgs(Viewport newViewport)
+    public int WindowWidth
+    {
+        get => windowWidth;
+        set
         {
-            NewViewport = newViewport;
-        }
-    }
-
-    public interface IViewportCalculator
-    {
-        Viewport GetViewportForWidth(int width);
-    }
-
-    public class ViewportCalculator : IViewportCalculator
-    {
-        public Viewport GetViewportForWidth(int width)
-        {
-            return width <= 500 ? Viewport.Smartphone : Viewport.Desktop;
+            SetProperty(ref windowWidth, value);
+            RecalculateViewport(windowWidth);
         }
     }
 
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public Viewport CurrentViewport { get; set; }
+
+    private void RecalculateViewport(int width)
     {
-        private readonly IViewportCalculator viewportCalculator;
-        private int windowWidth;
 
-        public event EventHandler<ViewportChangedEventArgs> OnViewportChanged = (sender, viewports) => { };
+        var vp = viewportCalculator.GetViewportForWidth(width);
 
-        public MainWindowViewModel(IViewportCalculator viewportCalculator)
+        if (vp != CurrentViewport)
         {
-            this.viewportCalculator = viewportCalculator;
+            OnViewportChanged.Invoke(this, new ViewportChangedEventArgs(vp));
+            CurrentViewport = vp;
         }
 
-        public int WindowWidth
+        switch (CurrentViewport)
         {
-            get => windowWidth;
-            set
-            {
-                windowWidth = value;
-                OnPropertyChanged(nameof(WindowWidth));
-                RecalculateViewport(windowWidth);
-            }
+            case Viewport.Smartphone:
+                IsFullMenuVisible = false;
+                break;
+            case Viewport.Desktop:
+                IsFullMenuVisible = true;
+                break;
         }
 
-        public Viewport CurrentViewport { get; set; }
+    }
 
-        private void RecalculateViewport(int width)
+    public bool IsSmallMenuVisible => !IsFullMenuVisible;
+
+    public bool IsFullMenuVisible
+    {
+        get => isFullMenuVisible;
+        set
         {
-
-            var vp =viewportCalculator.GetViewportForWidth(width);
-
-            if (vp != CurrentViewport)
-            {
-                OnViewportChanged.Invoke(this, new ViewportChangedEventArgs(vp));
-                CurrentViewport = vp;
-            }
-
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            SetProperty(ref isFullMenuVisible, value);
+            OnPropertyChanged(nameof(IsSmallMenuVisible));
         }
     }
 }
