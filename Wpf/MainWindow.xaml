@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpf="clr-namespace:Wpf"
         mc:Ignorable="d"
+        MinWidth="375"
         Title="MainWindow" Height="450" Width="{Binding WindowWidth, Mode=TwoWay}" d:DataContext="{d:DesignInstance wpf:MainWindowViewModel}">
     <Window.Resources>
         <Style TargetType="Button" x:Key="ButtonStyle">
@@ -17,97 +18,99 @@
         </Style>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="32"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0" Grid.ColumnSpan="2" Visibility="{Binding IsFullMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <UniformGrid Columns="4">
-                <Button Style="{StaticResource ButtonStyle}">Item 1</Button>
-                <Button Style="{StaticResource ButtonStyle}">Item 2</Button>
-                <Button Style="{StaticResource ButtonStyle}">Item 3</Button>
-                <Button Style="{StaticResource ButtonStyle}">Item 4</Button>
-            </UniformGrid>
-        </Border>
-        <Menu  Width="32" Name="HamburgerMenu" Grid.Row="0" Grid.ColumnSpan="2" Visibility="{Binding IsSmallMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-          
-            <MenuItem Header="+" Width="32" Height="32">
-            <MenuItem Header="Item 1"/>
-            <MenuItem Header="Item 2"/>
-            <MenuItem Header="Item 3"/>
-            <MenuItem Header="Item 4"/>
-            </MenuItem>
-        </Menu>
-        <RichTextBox Padding="5" Grid.Row="1" Grid.Column="0" Name="RichTextBox">
-            <FlowDocument>
-                <Paragraph>
-                    <InlineUIContainer>
-                        <WrapPanel>
-                            <Label Width="150">Name:</Label>
-                            <TextBox Width="300">Mustermann</TextBox>
-                        </WrapPanel>
-                    </InlineUIContainer>
-                </Paragraph>
-                <Paragraph>
-                    <InlineUIContainer>
-                        <WrapPanel>
-                            <Label Width="150">Vorname</Label>
-                            <TextBox Width="300">Max</TextBox>
-                        </WrapPanel>
-                    </InlineUIContainer>
-                </Paragraph>
-                <Paragraph>
-                    <InlineUIContainer>
-                        <WrapPanel>
-                            <Label Width="150">Wohnort</Label>
-                            <TextBox Width="300">12345 Musterhausen</TextBox>
-                        </WrapPanel>
-                    </InlineUIContainer>
-                </Paragraph>
-                <Paragraph>
-                    <InlineUIContainer>
-                        <WrapPanel>
-                            <Label Width="150">Adresse</Label>
-                            <TextBox Width="300">Musterstraße 10</TextBox>
-                        </WrapPanel>
-                    </InlineUIContainer>
-                </Paragraph>
-                <Paragraph>
-                    <InlineUIContainer>
-                        <WrapPanel>
-                            <Label Width="150">Stammkunde</Label>
-                            <StackPanel>
-                                <RadioButton GroupName="1" >Ja</RadioButton>
-                                <RadioButton GroupName="1" >Nein</RadioButton>
-                            </StackPanel>
-                        </WrapPanel>
-                    </InlineUIContainer>
-                </Paragraph>
-                <Paragraph>
-                    <InlineUIContainer>
-                        <WrapPanel>
-                            <Label Width="150">Geburtstag</Label>
-                            <Calendar></Calendar>
-                        </WrapPanel>
-                    </InlineUIContainer>
-                </Paragraph>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0" Grid.ColumnSpan="2" Visibility="{Binding IsFullMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <UniformGrid Columns="4">
+                    <Button Style="{StaticResource ButtonStyle}">Item 1</Button>
+                    <Button Style="{StaticResource ButtonStyle}">Item 2</Button>
+                    <Button Style="{StaticResource ButtonStyle}">Item 3</Button>
+                    <Button Style="{StaticResource ButtonStyle}">Item 4</Button>
+                </UniformGrid>
+            </Border>
+            <Menu  Width="32" Name="HamburgerMenu" Grid.Row="0" Grid.ColumnSpan="2" Visibility="{Binding IsSmallMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+                <MenuItem Header="+" Width="32" Height="32">
+                    <MenuItem Header="Item 1"/>
+                    <MenuItem Header="Item 2"/>
+                    <MenuItem Header="Item 3"/>
+                    <MenuItem Header="Item 4"/>
+                </MenuItem>
+            </Menu>
+            <RichTextBox Padding="5" Grid.Row="1" Grid.Column="0" Name="RichTextBox">
+                <FlowDocument>
+                    <Paragraph>
+                        <InlineUIContainer>
+                            <WrapPanel>
+                                <Label Width="150">Name:</Label>
+                                <TextBox Width="300">Mustermann</TextBox>
+                            </WrapPanel>
+                        </InlineUIContainer>
+                    </Paragraph>
+                    <Paragraph>
+                        <InlineUIContainer>
+                            <WrapPanel>
+                                <Label Width="150">Vorname</Label>
+                                <TextBox Width="300">Max</TextBox>
+                            </WrapPanel>
+                        </InlineUIContainer>
+                    </Paragraph>
+                    <Paragraph>
+                        <InlineUIContainer>
+                            <WrapPanel>
+                                <Label Width="150">Wohnort</Label>
+                                <TextBox Width="300">12345 Musterhausen</TextBox>
+                            </WrapPanel>
+                        </InlineUIContainer>
+                    </Paragraph>
+                    <Paragraph>
+                        <InlineUIContainer>
+                            <WrapPanel>
+                                <Label Width="150">Adresse</Label>
+                                <TextBox Width="300">Musterstraße 10</TextBox>
+                            </WrapPanel>
+                        </InlineUIContainer>
+                    </Paragraph>
+                    <Paragraph>
+                        <InlineUIContainer>
+                            <WrapPanel>
+                                <Label Width="150">Stammkunde</Label>
+                                <StackPanel>
+                                    <RadioButton GroupName="1" >Ja</RadioButton>
+                                    <RadioButton GroupName="1" >Nein</RadioButton>
+                                </StackPanel>
+                            </WrapPanel>
+                        </InlineUIContainer>
+                    </Paragraph>
+                    <Paragraph>
+                        <InlineUIContainer>
+                            <WrapPanel>
+                                <Label Width="150">Geburtstag</Label>
+                                <Calendar></Calendar>
+                            </WrapPanel>
+                        </InlineUIContainer>
+                    </Paragraph>
 
 
-            </FlowDocument>
-        </RichTextBox>
-        <DataGrid Margin="5" Name="DataGrid" Height="300" Grid.Row="1" Grid.Column="1">
-            <DataGrid.Columns>
-            <DataGridTextColumn Header="Text"></DataGridTextColumn>
-            <DataGridComboBoxColumn Header="Combo"></DataGridComboBoxColumn>
-            <DataGridCheckBoxColumn Header="Check"></DataGridCheckBoxColumn>
+                </FlowDocument>
+            </RichTextBox>
+            <DataGrid Margin="5" Name="DataGrid" Height="300" Grid.Row="1" Grid.Column="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Text"></DataGridTextColumn>
+                    <DataGridComboBoxColumn Header="Combo"></DataGridComboBoxColumn>
+                    <DataGridCheckBoxColumn Header="Check"></DataGridCheckBoxColumn>
                 </DataGrid.Columns>
-        </DataGrid>
-
-    </Grid>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
 </Window>

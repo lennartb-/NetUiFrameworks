@@ -13,6 +13,15 @@ namespace WinUi3
         public MainWindow()
         {
             this.InitializeComponent();
+            ViewModel = new MainWindowViewModel();
+            SizeChanged += (sender, args) =>
+            {
+                ViewModel.SizeChangedCommand.Execute(args.Size);
+            };
         }
+
+        public MainWindowViewModel ViewModel { get; set; }
+
+
     }
 }
