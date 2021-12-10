@@ -1,13 +1,50 @@
 ﻿<Window
     x:Class="WinUi3.MainWindow"
+    
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WinUi3"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     mc:Ignorable="d">
-
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+    <VariableSizedWrapGrid MaximumRowsOrColumns="2">
+        <StackPanel>
+            <VariableSizedWrapGrid MaximumRowsOrColumns="2">
+                <TextBlock>Name:</TextBlock>
+                <TextBox Width="300" Text="Mustermann"></TextBox>
+            </VariableSizedWrapGrid>
+            <VariableSizedWrapGrid MaximumRowsOrColumns="2">
+                <TextBlock Width="150">Vorname:</TextBlock>
+                <TextBox Width="300" Text="Max"></TextBox>
+            </VariableSizedWrapGrid>
+            <VariableSizedWrapGrid MaximumRowsOrColumns="2">
+                <TextBlock Width="150">Wohnort:</TextBlock>
+                <TextBox Width="300" Text="Musterstadt"></TextBox>
+            </VariableSizedWrapGrid>
+            <VariableSizedWrapGrid MaximumRowsOrColumns="2">
+                <TextBlock Width="150">Adresse:</TextBlock>
+                <TextBox Width="300" Text="Musterstraße 23"></TextBox>
+            </VariableSizedWrapGrid>
+            <VariableSizedWrapGrid MaximumRowsOrColumns="2">
+                <TextBlock Width="150">Stammkunde:</TextBlock>
+                <StackPanel>
+                    <RadioButton GroupName="1" >Ja</RadioButton>
+                    <RadioButton GroupName="1" >Nein</RadioButton>
+                </StackPanel>
+            </VariableSizedWrapGrid>
+            <VariableSizedWrapGrid MaximumRowsOrColumns="2">
+                <TextBlock Width="150">Geburtstag:</TextBlock>
+                <CalendarDatePicker  ></CalendarDatePicker>
+            </VariableSizedWrapGrid>
+            <controls:DataGrid>
+                <controls:DataGrid.Columns>
+                        <controls:DataGridTextColumn Header="Text"></controls:DataGridTextColumn>
+                        <controls:DataGridComboBoxColumn Header="Combo"></controls:DataGridComboBoxColumn>
+                        <controls:DataGridCheckBoxColumn Header="Check"></controls:DataGridCheckBoxColumn>
+                    </controls:DataGrid.Columns>
+            </controls:DataGrid>
+        </StackPanel>
+       
+    </VariableSizedWrapGrid>
 </Window>
