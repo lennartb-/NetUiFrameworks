@@ -4,21 +4,18 @@ using System;
 
 namespace NetMaui
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
+
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            count++;
-            CounterLabel.Text = $"Current count: {count}";
-
-            SemanticScreenReader.Announce(CounterLabel.Text);
+            base.OnAppearing();
+            Current.CurrentItem = DesktopTabBar;
         }
     }
 }

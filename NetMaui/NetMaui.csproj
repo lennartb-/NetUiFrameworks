@@ -48,6 +48,22 @@
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="ViewPage2.xaml.cs">
+	    <DependentUpon>ViewPage2.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="ViewPage2.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ViewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 	<!--<ItemGroup>
 	  <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.30" />
 	  <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
@@ -57,5 +73,7 @@
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	</PropertyGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadGenericExceptionInfoBarNetMauiHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 	
 </Project>

@@ -1,0 +1,49 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NetMaui.ViewPage"
+             Title="ViewPage">
+    <FlexLayout Direction="Column">
+        <ContentView>
+            <StackLayout Orientation="Horizontal">
+
+                <Label>Name:</Label>
+                <Entry Text="Mustermann"></Entry>
+
+            </StackLayout>
+        </ContentView>
+        <ContentView>
+            <StackLayout Orientation="Horizontal">
+
+                <Label>Vorname:</Label>
+                <Entry Text="Max"></Entry>
+
+            </StackLayout>
+        </ContentView>
+        <ContentView>
+            <StackLayout Orientation="Horizontal">
+                <Label>Wohnort:</Label>
+                <Entry Text="Musterstadt"></Entry>
+
+            </StackLayout>
+        </ContentView>
+        <ContentView>
+            <StackLayout Orientation="Horizontal">
+                <Label>Adresse:</Label>
+                <Entry Text="Musterstrasse 23"></Entry>
+            </StackLayout>
+        </ContentView>
+        <ContentView>
+            <StackLayout Orientation="Horizontal">
+                <Label >Stammkunde:</Label>
+                <RadioButton GroupName="1" Content="Ja"></RadioButton>
+                <RadioButton GroupName="1" Content="Nein"></RadioButton>
+            </StackLayout>
+        </ContentView>
+        <ContentView>
+            <StackLayout Orientation="Horizontal">
+                <Label>Geburtstag:</Label>
+                <DatePicker></DatePicker>
+            </StackLayout>
+        </ContentView>
+    </FlexLayout>
+</ContentPage>
