@@ -6,65 +6,75 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     mc:Ignorable="d">
-    <Frame>
+
+    <Frame RequestedTheme="Light" Background="White">
         <Page>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <NavigationView PaneDisplayMode="LeftMinimal" Name="NavigationViewControl" IsBackButtonVisible="Collapsed" Grid.ColumnSpan="2" Grid.Row="0">
-                    <NavigationView.MenuItems>
-                        <NavigationViewItem Content="Menu Item1" Tag="SamplePage1" />
-                        <NavigationViewItem Content="Menu Item2" Tag="SamplePage2" />
-                        <NavigationViewItem Content="Menu Item3" Tag="SamplePage3" />
-                        <NavigationViewItem Content="Menu Item4" Tag="SamplePage4" />
-                    </NavigationView.MenuItems>
-                </NavigationView>
+            <ScrollViewer >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <NavigationView PaneDisplayMode="LeftMinimal" Name="NavigationViewControl" IsBackButtonVisible="Collapsed" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Stretch">
+                        <NavigationView.MenuItems>
+                            <NavigationViewItem Content="Menu Item1" Tag="SamplePage1" />
+                            <NavigationViewItem Content="Menu Item2" Tag="SamplePage2" />
+                            <NavigationViewItem Content="Menu Item3" Tag="SamplePage3" />
+                            <NavigationViewItem Content="Menu Item4" Tag="SamplePage4" />
+                        </NavigationView.MenuItems>
+                    </NavigationView>
 
-                <controls:AdaptiveGridView Grid.Column="1" Grid.Row="1" StretchContentForSingleRow="True" DesiredWidth="{x:Bind ViewModel.ViewportSize, Mode=TwoWay}">
-                    <StackPanel>
-                        <controls:AdaptiveGridView DesiredWidth="200">
-                            <TextBlock>Name:</TextBlock>
-                            <TextBox Text="Mustermann"></TextBox>
-                        </controls:AdaptiveGridView>
-                        <controls:AdaptiveGridView DesiredWidth="200">
-                            <TextBlock >Vorname:</TextBlock>
-                            <TextBox Text="Max"></TextBox>
-                        </controls:AdaptiveGridView>
-                        <controls:AdaptiveGridView DesiredWidth="200">
-                            <TextBlock >Wohnort:</TextBlock>
-                            <TextBox  Text="Musterstadt"></TextBox>
-                        </controls:AdaptiveGridView>
-                        <controls:AdaptiveGridView DesiredWidth="200">
-                            <TextBlock >Adresse:</TextBlock>
-                            <TextBox  Text="Musterstraße 23"></TextBox>
-                        </controls:AdaptiveGridView>
-                        <controls:AdaptiveGridView DesiredWidth="200" ItemHeight="80">
-                            <TextBlock >Stammkunde:</TextBlock>
-                            <controls:WrapPanel Orientation="Horizontal">
-                                <RadioButton GroupName="1">Ja</RadioButton>
-                                <RadioButton GroupName="1">Nein</RadioButton>
-                            </controls:WrapPanel>
-                        </controls:AdaptiveGridView>
-                        <controls:AdaptiveGridView DesiredWidth="200">
-                            <TextBlock >Geburtstag:</TextBlock>
-                            <CalendarDatePicker  ></CalendarDatePicker>
-                        </controls:AdaptiveGridView>
-                    </StackPanel>
-
-                    <controls:DataGrid>
-                        <controls:DataGrid.Columns>
-                            <controls:DataGridTextColumn Header="Text"></controls:DataGridTextColumn>
-                            <controls:DataGridComboBoxColumn Header="Combo"></controls:DataGridComboBoxColumn>
-                            <controls:DataGridCheckBoxColumn Header="Check"></controls:DataGridCheckBoxColumn>
-                        </controls:DataGrid.Columns>
-                    </controls:DataGrid>
-                </controls:AdaptiveGridView>
+                    <controls:AdaptiveGridView Grid.Column="1" Grid.Row="1"  StretchContentForSingleRow="True" DesiredWidth="400">
+                        <StackPanel>
+                            <controls:AdaptiveGridView DesiredWidth="200">
+                                <TextBlock>Name:</TextBlock>
+                                <TextBox Text="Mustermann"></TextBox>
+                            </controls:AdaptiveGridView>
+                            <controls:AdaptiveGridView DesiredWidth="200">
+                                <TextBlock >Vorname:</TextBlock>
+                                <TextBox Text="Max"></TextBox>
+                            </controls:AdaptiveGridView>
+                            <controls:AdaptiveGridView DesiredWidth="200">
+                                <TextBlock >Wohnort:</TextBlock>
+                                <TextBox  Text="Musterstadt"></TextBox>
+                            </controls:AdaptiveGridView>
+                            <controls:AdaptiveGridView DesiredWidth="200">
+                                <TextBlock >Adresse:</TextBlock>
+                                <TextBox  Text="Musterstraße 23"></TextBox>
+                            </controls:AdaptiveGridView>
+                            <controls:AdaptiveGridView DesiredWidth="200" ItemHeight="80">
+                                <TextBlock >Stammkunde:</TextBlock>
+                                <controls:WrapPanel Orientation="Horizontal">
+                                    <RadioButton GroupName="1">Ja</RadioButton>
+                                    <RadioButton GroupName="1">Nein</RadioButton>
+                                </controls:WrapPanel>
+                            </controls:AdaptiveGridView>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Name="BirthdayBlock" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Geburtstag:</TextBlock>
+                                <DatePicker Name="DatePicker" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"></DatePicker>
+                            </Grid>
+                        </StackPanel>
+                        <controls:DataGrid>
+                            <controls:DataGrid.Columns>
+                                <controls:DataGridTextColumn Header="Text"></controls:DataGridTextColumn>
+                                <controls:DataGridComboBoxColumn Header="Combo"></controls:DataGridComboBoxColumn>
+                                <controls:DataGridCheckBoxColumn Header="Check"></controls:DataGridCheckBoxColumn>
+                            </controls:DataGrid.Columns>
+                        </controls:DataGrid>
+                    </controls:AdaptiveGridView>
+                </Grid>
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroup>
                         <VisualState>
@@ -72,17 +82,20 @@
                                 <AdaptiveTrigger
                                     MinWindowWidth="{x:Bind NavigationViewControl.CompactModeThresholdWidth}" />
                             </VisualState.StateTriggers>
-
                             <VisualState.Setters>
                                 <Setter Target="NavigationViewControl.PaneDisplayMode" Value="Top"/>
+                                <Setter Target="NavigationViewControl.HorizontalAlignment" Value="Left"/>
+                                <Setter Target="BirthdayBlock.(Grid.ColumnSpan)" Value="1"/>
+                                <Setter Target="BirthdayBlock.(Grid.Row)" Value="0"/>
+                                <Setter Target="BirthdayBlock.(Grid.Column)" Value="0"/>
+                                <Setter Target="DatePicker.(Grid.Row)" Value="0"/>
+                                <Setter Target="DatePicker.(Grid.ColumnSpan)" Value="1"/>
+                                <Setter Target="DatePicker.(Grid.Column)" Value="1"/>
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
-            </Grid>
-
-
+            </ScrollViewer>
         </Page>
-
     </Frame>
 </Window>

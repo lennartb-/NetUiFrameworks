@@ -30,7 +30,7 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0" Grid.ColumnSpan="2" Visibility="{Binding IsFullMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Border BorderThickness="0" BorderBrush="Black" Grid.Row="0" Grid.ColumnSpan="2" Visibility="{Binding IsFullMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <UniformGrid Columns="4">
                     <Button Style="{StaticResource ButtonStyle}">Item 1</Button>
                     <Button Style="{StaticResource ButtonStyle}">Item 2</Button>
@@ -38,7 +38,7 @@
                     <Button Style="{StaticResource ButtonStyle}">Item 4</Button>
                 </UniformGrid>
             </Border>
-            <Menu  Width="32" Name="HamburgerMenu" Grid.Row="0" Grid.ColumnSpan="2" Visibility="{Binding IsSmallMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Menu  Width="32" Name="HamburgerMenu" Grid.Row="0" BorderThickness="0" Grid.ColumnSpan="2" Visibility="{Binding IsSmallMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
 
                 <MenuItem Header="+" Width="32" Height="32">
                     <MenuItem Header="Item 1"/>
@@ -47,7 +47,7 @@
                     <MenuItem Header="Item 4"/>
                 </MenuItem>
             </Menu>
-            <RichTextBox Padding="5" Grid.Row="1" Grid.Column="0" Name="RichTextBox">
+            <RichTextBox Padding="5" Grid.Row="1" Grid.Column="0" Name="RichTextBox" BorderThickness="0">
                 <FlowDocument>
                     <Paragraph>
                         <InlineUIContainer>
