@@ -2,48 +2,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NetMaui.ViewPage"
              Title="ViewPage">
-    <FlexLayout Direction="Column">
-        <ContentView>
-            <StackLayout Orientation="Horizontal">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-                <Label>Name:</Label>
-                <Entry Text="Mustermann"></Entry>
 
-            </StackLayout>
-        </ContentView>
-        <ContentView>
-            <StackLayout Orientation="Horizontal">
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Name:</Label>
+        <Entry Grid.Row="{OnIdiom 0, Phone=1}" Grid.Column="{OnIdiom 1, Phone=0}"
+               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Mustermann">
+        </Entry>
 
-                <Label>Vorname:</Label>
-                <Entry Text="Max"></Entry>
 
-            </StackLayout>
-        </ContentView>
-        <ContentView>
-            <StackLayout Orientation="Horizontal">
-                <Label>Wohnort:</Label>
-                <Entry Text="Musterstadt"></Entry>
+        <Label Grid.Row="{OnIdiom 1, Phone=2}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Vorname:</Label>
+        <Entry Grid.Row="{OnIdiom 1, Phone=3}" Grid.Column="{OnIdiom 1, Phone=0}"
+               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Max">
+        </Entry>
 
-            </StackLayout>
-        </ContentView>
-        <ContentView>
-            <StackLayout Orientation="Horizontal">
-                <Label>Adresse:</Label>
-                <Entry Text="Musterstrasse 23"></Entry>
-            </StackLayout>
-        </ContentView>
-        <ContentView>
-            <StackLayout Orientation="Horizontal">
-                <Label >Stammkunde:</Label>
-                <RadioButton GroupName="1" Content="Ja"></RadioButton>
-                <RadioButton GroupName="1" Content="Nein"></RadioButton>
-            </StackLayout>
-        </ContentView>
-        <ContentView>
-            <StackLayout Orientation="Horizontal">
-                <Label>Geburtstag:</Label>
-                <DatePicker></DatePicker>
-            </StackLayout>
-        </ContentView>
-    </FlexLayout>
+        <Label Grid.Row="{OnIdiom 2, Phone=4}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Wohnort:</Label>
+        <Entry Grid.Row="{OnIdiom 2, Phone=5}" Grid.Column="{OnIdiom 1, Phone=0}"
+               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Musterstadt">
+        </Entry>
+
+        <Label Grid.Row="{OnIdiom 3, Phone=6}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Adresse:</Label>
+        <Entry Grid.Row="{OnIdiom 3, Phone=7}" Grid.Column="{OnIdiom 1, Phone=0}"
+               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Musterstrasse 23">
+        </Entry>
+
+        <Label Grid.Row="{OnIdiom 4, Phone=8}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Stammkunde:</Label>
+
+        <Grid Grid.Row="{OnIdiom 4, Phone=9}" Grid.Column="{OnIdiom 1, Phone=0}" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <RadioButton GroupName="1" Content="Ja" Grid.Column="0" Grid.Row="0"></RadioButton>
+            <RadioButton GroupName="1" Content="Nein" Grid.Column="1" Grid.Row="0"></RadioButton>
+        </Grid>
+
+        <Label Grid.Row="{OnIdiom 5, Phone=10}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Geburtstag:</Label>
+        <DatePicker Grid.Row="{OnIdiom 5, Phone=11}" Grid.Column="{OnIdiom 1, Phone=0}"
+                    Grid.ColumnSpan="{OnIdiom 1, Phone=2}">
+        </DatePicker>
+    </Grid>
 </ContentPage>

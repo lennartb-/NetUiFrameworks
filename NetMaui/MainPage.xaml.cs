@@ -11,11 +11,5 @@ namespace NetMaui
             InitializeComponent();
 
         }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            Current.CurrentItem = DesktopTabBar;
-        }
     }
 }
