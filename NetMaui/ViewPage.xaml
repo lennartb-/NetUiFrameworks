@@ -3,64 +3,90 @@
              x:Class="NetMaui.ViewPage"
              Title="ViewPage">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Name:</Label>
-        <Entry Grid.Row="{OnIdiom 0, Phone=1}" Grid.Column="{OnIdiom 1, Phone=0}"
-               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Mustermann">
-        </Entry>
-
-
-        <Label Grid.Row="{OnIdiom 1, Phone=2}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Vorname:</Label>
-        <Entry Grid.Row="{OnIdiom 1, Phone=3}" Grid.Column="{OnIdiom 1, Phone=0}"
-               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Max">
-        </Entry>
-
-        <Label Grid.Row="{OnIdiom 2, Phone=4}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Wohnort:</Label>
-        <Entry Grid.Row="{OnIdiom 2, Phone=5}" Grid.Column="{OnIdiom 1, Phone=0}"
-               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Musterstadt">
-        </Entry>
-
-        <Label Grid.Row="{OnIdiom 3, Phone=6}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Adresse:</Label>
-        <Entry Grid.Row="{OnIdiom 3, Phone=7}" Grid.Column="{OnIdiom 1, Phone=0}"
-               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Musterstrasse 23">
-        </Entry>
-
-        <Label Grid.Row="{OnIdiom 4, Phone=8}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Stammkunde:</Label>
-
-        <Grid Grid.Row="{OnIdiom 4, Phone=9}" Grid.Column="{OnIdiom 1, Phone=0}" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <RadioButton GroupName="1" Content="Ja" Grid.Column="0" Grid.Row="0"></RadioButton>
-            <RadioButton GroupName="1" Content="Nein" Grid.Column="1" Grid.Row="0"></RadioButton>
-        </Grid>
+            <Grid Grid.ColumnSpan="{OnIdiom 1, Phone=2}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="{OnIdiom 5, Phone=10}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Geburtstag:</Label>
-        <DatePicker Grid.Row="{OnIdiom 5, Phone=11}" Grid.Column="{OnIdiom 1, Phone=0}"
+
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Name:</Label>
+                <Entry Grid.Row="{OnIdiom 0, Phone=1}" Grid.Column="{OnIdiom 1, Phone=0}"
+               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Mustermann">
+                </Entry>
+
+
+                <Label Grid.Row="{OnIdiom 1, Phone=2}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Vorname:</Label>
+                <Entry Grid.Row="{OnIdiom 1, Phone=3}" Grid.Column="{OnIdiom 1, Phone=0}"
+               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Max">
+                </Entry>
+
+                <Label Grid.Row="{OnIdiom 2, Phone=4}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Wohnort:</Label>
+                <Entry Grid.Row="{OnIdiom 2, Phone=5}" Grid.Column="{OnIdiom 1, Phone=0}"
+               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Musterstadt">
+                </Entry>
+
+                <Label Grid.Row="{OnIdiom 3, Phone=6}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Adresse:</Label>
+                <Entry Grid.Row="{OnIdiom 3, Phone=7}" Grid.Column="{OnIdiom 1, Phone=0}"
+               Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Musterstrasse 23">
+                </Entry>
+
+                <Label Grid.Row="{OnIdiom 4, Phone=8}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Stammkunde:</Label>
+
+                <Grid Grid.Row="{OnIdiom 4, Phone=9}" Grid.Column="{OnIdiom 1, Phone=0}" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <RadioButton GroupName="1" Content="Ja" Grid.Column="0" Grid.Row="0"></RadioButton>
+                    <RadioButton GroupName="1" Content="Nein" Grid.Column="1" Grid.Row="0"></RadioButton>
+                </Grid>
+
+                <Label Grid.Row="{OnIdiom 5, Phone=10}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Geburtstag:</Label>
+                <DatePicker Grid.Row="{OnIdiom 5, Phone=11}" Grid.Column="{OnIdiom 1, Phone=0}"
                     Grid.ColumnSpan="{OnIdiom 1, Phone=2}">
-        </DatePicker>
+                </DatePicker>
+            </Grid>
+            <Grid Grid.Column="{OnIdiom 1, Phone=0}" Grid.Row="{OnIdiom 0, Phone=1}" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button Text="Text"  Grid.Column="0" Grid.Row="0"></Button>
+                <Button Text="Combo"  Grid.Column="1" Grid.Row="0"></Button>
+                <Button Text="Check"  Grid.Column="2" Grid.Row="0"></Button>
+            </Grid>
+        </Grid>
     </Grid>
 </ContentPage>
