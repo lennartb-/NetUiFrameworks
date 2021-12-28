@@ -1,5 +1,7 @@
-﻿using Windows.Foundation;
+﻿using System.Collections.Generic;
+using Windows.Foundation;
 using Microsoft.Toolkit.Mvvm.Input;
+using Shared;
 
 namespace WinUi3
 {
@@ -7,12 +9,14 @@ namespace WinUi3
     {
         public MainWindowViewModel()
         {
-            SizeChangedCommand = new RelayCommand<Size>(
-                size => { ViewportSize = (size.Width / 2d) + 1d; });
+            DataGridItems = new[]
+            {
+                new SampleModel("Mustermann", "Michael", true),
+                new SampleModel("Musterfrau", "Michaela", true),
+                new SampleModel("Musterperson", "Maxi", true),
+            };
         }
 
-        public double ViewportSize { get; set; } = 400;
-
-        public RelayCommand<Size> SizeChangedCommand { get; set; }
+        public IEnumerable<SampleModel> DataGridItems { get; set; }
     }
 }

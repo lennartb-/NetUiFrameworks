@@ -75,7 +75,7 @@
                         <InlineUIContainer>
                             <WrapPanel>
                                 <Label Width="150">Vorname</Label>
-                                <TextBox Width="300">Max</TextBox>
+                                <TextBox Width="300">Michael</TextBox>
                             </WrapPanel>
                         </InlineUIContainer>
                     </Paragraph>
@@ -124,7 +124,7 @@
                     <DataGridTextColumn Header="Vorname" Binding="{Binding FirstName}" />
                     <DataGridCheckBoxColumn Header="Registriert?" Binding="{Binding IsRegistered}" />
                 </DataGrid.Columns>
-                <shared:SampleModel Name="Mustermann" FirstName="Max" IsRegistered="True"></shared:SampleModel>
+                <shared:SampleModel Name="Mustermann" FirstName="Michael" IsRegistered="True"></shared:SampleModel>
                 <shared:SampleModel Name="Musterfrau" FirstName="Michaela" IsRegistered="False"></shared:SampleModel>
                 <shared:SampleModel Name="Mustermensch" FirstName="Maxi" IsRegistered="True"></shared:SampleModel>
             </DataGrid>

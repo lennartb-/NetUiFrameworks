@@ -9,7 +9,6 @@
         {
             InitializeComponent();
             ViewModel = new MainWindowViewModel();
-            SizeChanged += (_, args) => { ViewModel.SizeChangedCommand.Execute(args.Size); };
         }
 
         public MainWindowViewModel ViewModel { get; set; }
