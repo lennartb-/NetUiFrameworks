@@ -34,20 +34,31 @@
             <Border BorderThickness="0" BorderBrush="Black" Grid.Row="0" Grid.ColumnSpan="2"
                     Visibility="{Binding IsFullMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <UniformGrid Columns="4">
-                    <Button Style="{StaticResource ButtonStyle}">Item 1</Button>
-                    <Button Style="{StaticResource ButtonStyle}">Item 2</Button>
-                    <Button Style="{StaticResource ButtonStyle}">Item 3</Button>
-                    <Button Style="{StaticResource ButtonStyle}">Item 4</Button>
+                    <Button Style="{StaticResource ButtonStyle}">Stammdaten</Button>
+                    <Button Style="{StaticResource ButtonStyle}">Bestellungen</Button>
+                    <Button Style="{StaticResource ButtonStyle}">Rechnungen</Button>
+                    <Button Style="{StaticResource ButtonStyle}">Intern</Button>
                 </UniformGrid>
             </Border>
-            <Menu Width="32" Name="HamburgerMenu" Grid.Row="0" BorderThickness="0" Grid.ColumnSpan="2"
+            <Menu Width="32" Name="HamburgerMenu" Grid.Row="0" BorderThickness="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"
                   Visibility="{Binding IsSmallMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-
-                <MenuItem Header="+" Width="32" Height="32">
-                    <MenuItem Header="Item 1" />
-                    <MenuItem Header="Item 2" />
-                    <MenuItem Header="Item 3" />
-                    <MenuItem Header="Item 4" />
+                <MenuItem Padding="0,0,0,0">
+                    <MenuItem.Header >
+                        <TextBlock Text="&#xE700;" FontSize="24" FontWeight="Bold" FontFamily="Segoe MDL2 Assets">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="3" Y="3"/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </MenuItem.Header>
+                    <MenuItem Header="Stammdaten" />
+                    <MenuItem Header="Bestellungen" />
+                    <MenuItem Header="Rechnungen" />
+                    <MenuItem Header="Intern" />
                 </MenuItem>
             </Menu>
             <RichTextBox Padding="5" Grid.Row="1" Grid.Column="0" Name="RichTextBox" BorderThickness="0">
@@ -107,12 +118,15 @@
 
                 </FlowDocument>
             </RichTextBox>
-            <DataGrid Margin="5" Name="DataGrid" Height="300" Grid.Row="1" Grid.Column="1">
+            <DataGrid Margin="5" Name="DataGrid" Height="300" Grid.Row="1" Grid.Column="1" xmlns:shared="clr-namespace:Shared;assembly=Shared">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Text" />
-                    <DataGridComboBoxColumn Header="Combo" />
-                    <DataGridCheckBoxColumn Header="Check" />
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Vorname" Binding="{Binding FirstName}" />
+                    <DataGridCheckBoxColumn Header="Registriert?" Binding="{Binding IsRegistered}" />
                 </DataGrid.Columns>
+                <shared:SampleModel Name="Mustermann" FirstName="Max" IsRegistered="True"></shared:SampleModel>
+                <shared:SampleModel Name="Musterfrau" FirstName="Michaela" IsRegistered="False"></shared:SampleModel>
+                <shared:SampleModel Name="Mustermensch" FirstName="Maxi" IsRegistered="True"></shared:SampleModel>
             </DataGrid>
         </Grid>
     </ScrollViewer>
