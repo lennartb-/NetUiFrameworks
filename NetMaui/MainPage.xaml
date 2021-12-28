@@ -5,16 +5,16 @@
 
 
     <TabBar x:Name="DesktopTabBar">
-        <Tab Title="Item 1">
+        <Tab Title="Stammdaten">
             <ShellContent ContentTemplate="{DataTemplate local:ViewPage}" />
         </Tab>
-        <Tab Title="Item 2">
+        <Tab Title="Bestellungen">
             <ShellContent ContentTemplate="{DataTemplate local:ViewPage2}" />
         </Tab>
-        <Tab Title="Item 3">
+        <Tab Title="Rechnungen">
             <ShellContent ContentTemplate="{DataTemplate local:ViewPage}" />
         </Tab>
-        <Tab Title="Item 4">
+        <Tab Title="Intern">
             <ShellContent ContentTemplate="{DataTemplate local:ViewPage}" />
         </Tab>
     </TabBar>
