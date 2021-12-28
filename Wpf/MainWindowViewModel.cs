@@ -1,23 +1,18 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
+﻿using System;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace Wpf;
 
 public class MainWindowViewModel : ObservableObject
 {
-    private readonly IViewportCalculator viewportCalculator;
-    private int windowWidth = 800;
+    private Viewport currentViewport;
     private bool isFullMenuVisible;
+    private int windowWidth = 800;
 
-    public event EventHandler<ViewportChangedEventArgs> OnViewportChanged = (_, _) => { };
-
-    public MainWindowViewModel(IViewportCalculator viewportCalculator)
+    public MainWindowViewModel()
     {
-        this.viewportCalculator = viewportCalculator;
         RecalculateViewport(WindowWidth);
-
     }
-
 
     public int WindowWidth
     {
@@ -29,31 +24,6 @@ public class MainWindowViewModel : ObservableObject
         }
     }
 
-    public Viewport CurrentViewport { get; set; }
-
-    private void RecalculateViewport(int width)
-    {
-
-        var vp = viewportCalculator.GetViewportForWidth(width);
-
-        if (vp != CurrentViewport)
-        {
-            OnViewportChanged.Invoke(this, new ViewportChangedEventArgs(vp));
-            CurrentViewport = vp;
-        }
-
-        switch (CurrentViewport)
-        {
-            case Viewport.Smartphone:
-                IsFullMenuVisible = false;
-                break;
-            case Viewport.Desktop:
-                IsFullMenuVisible = true;
-                break;
-        }
-
-    }
-
     public bool IsSmallMenuVisible => !IsFullMenuVisible;
 
     public bool IsFullMenuVisible
@@ -63,6 +33,29 @@ public class MainWindowViewModel : ObservableObject
         {
             SetProperty(ref isFullMenuVisible, value);
             OnPropertyChanged(nameof(IsSmallMenuVisible));
+        }
+    }
+
+    public event EventHandler<ViewportChangedEventArgs> OnViewportChanged = (_, _) => { };
+
+    private void RecalculateViewport(int width)
+    {
+        var computedViewPort = width <= 500 ? Viewport.Smartphone : Viewport.Desktop;
+
+        if (computedViewPort != currentViewport)
+        {
+            OnViewportChanged.Invoke(this, new ViewportChangedEventArgs(computedViewPort));
+            currentViewport = computedViewPort;
+        }
+
+        switch (currentViewport)
+        {
+            case Viewport.Smartphone:
+                IsFullMenuVisible = false;
+                break;
+            case Viewport.Desktop:
+                IsFullMenuVisible = true;
+                break;
         }
     }
 }

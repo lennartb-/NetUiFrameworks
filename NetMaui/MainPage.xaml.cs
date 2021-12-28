@@ -2,14 +2,13 @@
 using Microsoft.Maui.Essentials;
 using System;
 
-namespace NetMaui
-{
-    public partial class MainPage
-    {
-        public MainPage()
-        {
-            InitializeComponent();
+namespace NetMaui;
 
-        }
+public partial class MainPage
+{
+    public MainPage()
+    {
+        InitializeComponent();
+
     }
 }

@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Wpf
+namespace Wpf;
+
+/// <summary>
+/// Interaction logic for SampleView.xaml
+/// </summary>
+public partial class SampleView : Window
 {
-    /// <summary>
-    /// Interaction logic for SampleView.xaml
-    /// </summary>
-    public partial class SampleView : Window
+    public SampleView()
     {
-        public SampleView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
