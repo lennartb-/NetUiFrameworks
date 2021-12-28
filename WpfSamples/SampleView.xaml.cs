@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Wpf;
+namespace WpfSamples;
 
 /// <summary>
 ///     Interaction logic for SampleView.xaml

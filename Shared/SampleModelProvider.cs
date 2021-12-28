@@ -1,4 +1,4 @@
-﻿namespace Wpf;
+﻿namespace Shared;
 
 public class SampleModelProvider
 {
@@ -6,6 +6,6 @@ public class SampleModelProvider
 
     public static SampleModel GetModel()
     {
-        return new SampleModel($"Name{modelCounter}", $"Image{modelCounter++}");
+        return new SampleModel($"Name{modelCounter}", $"Image{modelCounter++}", modelCounter % 2 == 0);
     }
 }

@@ -1,7 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using Shared;
 
-namespace Wpf;
+namespace WpfSamples;
 
 public class SampleViewModel
 {
