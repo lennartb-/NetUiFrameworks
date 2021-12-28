@@ -40,7 +40,7 @@
 
             <Label Grid.Row="{OnIdiom 1, Phone=2}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Vorname:</Label>
             <Entry Grid.Row="{OnIdiom 1, Phone=3}" Grid.Column="{OnIdiom 1, Phone=0}"
-                   Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Max">
+                   Grid.ColumnSpan="{OnIdiom 1, Phone=2}" Text="Michael">
             </Entry>
 
             <Label Grid.Row="{OnIdiom 2, Phone=4}" Grid.Column="0" Grid.ColumnSpan="{OnIdiom 1, Phone=2}">Wohnort:</Label>
@@ -81,11 +81,26 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Button Text="Text" Grid.Column="0" Grid.Row="0"></Button>
-            <Button Text="Combo" Grid.Column="1" Grid.Row="0"></Button>
-            <Button Text="Check" Grid.Column="2" Grid.Row="0"></Button>
+            <Button Text="Nachname" Grid.Column="0" Grid.Row="0"></Button>
+            <Button Text="Vorname" Grid.Column="1" Grid.Row="0"></Button>
+            <Button Text="Registriert?" Grid.Column="2" Grid.Row="0"></Button>
+
+            <Label Text="Mustermann" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center"></Label>
+            <Label Text="Michael" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center"></Label>
+            <CheckBox IsChecked="true"  Grid.Column="2" Grid.Row="1" HorizontalOptions="Center"></CheckBox>
+
+            <Label Text="Musterfrau" Grid.Column="0" Grid.Row="2" HorizontalTextAlignment="Center"></Label>
+            <Label Text="Michaela" Grid.Column="1" Grid.Row="2" HorizontalTextAlignment="Center"></Label>
+            <CheckBox IsChecked="false"  Grid.Column="2" Grid.Row="2" HorizontalOptions="Center"></CheckBox>
+
+            <Label Text="Musterperson" Grid.Column="0" Grid.Row="3" HorizontalTextAlignment="Center"></Label>
+            <Label Text="Maxi" Grid.Column="1" Grid.Row="3" HorizontalTextAlignment="Center"></Label>
+            <CheckBox IsChecked="true"  Grid.Column="2" Grid.Row="3" HorizontalOptions="Center"></CheckBox>
         </Grid>
     </Grid>
 </ContentPage>

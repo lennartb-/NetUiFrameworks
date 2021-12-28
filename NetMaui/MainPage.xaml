@@ -9,7 +9,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:ViewPage}" />
         </Tab>
         <Tab Title="Bestellungen">
-            <ShellContent ContentTemplate="{DataTemplate local:ViewPage2}" />
+            <ShellContent ContentTemplate="{DataTemplate local:ViewPage}" />
         </Tab>
         <Tab Title="Rechnungen">
             <ShellContent ContentTemplate="{DataTemplate local:ViewPage}" />
