@@ -4,8 +4,8 @@ namespace NetMaui;
 
 public partial class ViewPage : ContentPage
 {
-	public ViewPage()
-	{
-		InitializeComponent();
-	}
+    public ViewPage()
+    {
+        InitializeComponent();
+    }
 }

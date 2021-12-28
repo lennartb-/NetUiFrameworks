@@ -1,5 +1,5 @@
-﻿using Microsoft.Toolkit.Mvvm.Input;
-using Windows.Foundation;
+﻿using Windows.Foundation;
+using Microsoft.Toolkit.Mvvm.Input;
 
 namespace WinUi3
 {
@@ -8,14 +8,10 @@ namespace WinUi3
         public MainWindowViewModel()
         {
             SizeChangedCommand = new RelayCommand<Size>(
-                size =>
-                {
-                    ViewportSize = (size.Width / 2d) +1d;
-                });
+                size => { ViewportSize = (size.Width / 2d) + 1d; });
         }
 
         public double ViewportSize { get; set; } = 400;
-
 
         public RelayCommand<Size> SizeChangedCommand { get; set; }
     }

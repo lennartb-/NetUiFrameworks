@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Wpf;
@@ -11,7 +11,7 @@ public partial class MainWindow
         DataContextChanged += MainWindow_DataContextChanged;
     }
 
-    private void MainWindow_DataContextChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
+    private void MainWindow_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (e.NewValue is MainWindowViewModel vm)
         {

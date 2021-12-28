@@ -7,6 +7,7 @@ public class SampleModel : INotifyPropertyChanged
 {
     private string image;
     private string name;
+
     public SampleModel(string name, string image)
     {
         this.name = name;

@@ -4,8 +4,8 @@ public class SampleModelProvider
 {
     private static int modelCounter;
 
-    public SampleModel GetModel()
+    public static SampleModel GetModel()
     {
-        return new SampleModel($"Name{modelCounter}",$"Image{modelCounter++}");
+        return new SampleModel($"Name{modelCounter}", $"Image{modelCounter++}");
     }
 }

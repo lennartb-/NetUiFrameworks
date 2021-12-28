@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace NetMaui;
+namespace NetMaui.Platforms.MacCatalyst;
 
 public class Program
 {

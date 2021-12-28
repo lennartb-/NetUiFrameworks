@@ -9,8 +9,8 @@
         Title="SampleView" Height="450" Width="800" d:DataContext="{d:DesignInstance local:SampleViewModel}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <ListBox ItemsSource="{Binding Items}">
@@ -26,7 +26,7 @@
         <Button Content="Refresh" Grid.Row="1">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="Click">
-                    <b:InvokeCommandAction Command="{Binding RefreshCommand}"/>
+                    <b:InvokeCommandAction Command="{Binding RefreshCommand}" />
                 </b:EventTrigger>
             </b:Interaction.Triggers>
         </Button>
