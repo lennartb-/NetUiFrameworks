@@ -1,3 +1,0 @@
-﻿namespace UnoPlatform.Skia.Gtk
-{
-}
